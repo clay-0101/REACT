@@ -1,0 +1,10 @@
+.btn{
+    width: 15vw;
+    font-size: 3rem;
+    background-color: blue;
+    color: white;
+    border-radius: 25px;
+    padding: 1vw;
+    border: 3px solid black;
+    margin-top: 2vw;
+}
