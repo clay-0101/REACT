@@ -15,13 +15,6 @@ const App = () => {
   }
 
 // THIS IS THE SECOND EXAMPLE
-  const [title, settitle] = useState('')
-  const submiting = (e)=>{
-    e.preventDefault()
-    console.log("form submitted...")
-  }
-
-
   return (
     <div>
       {/* FOR FIRST FUNCTION */}
@@ -32,21 +25,7 @@ const App = () => {
         <button onClick={power2Num}>power-2</button>
       </div>
       {/* FOR SECOND FUNCTION */}
-      <div>
-        <form onSubmit={(e)=>{
-          submiting(e)
-        }}>
-          <input 
-          type="text" 
-          placeholder="Enter your name"
-          value = {title}
-          onChange={(e)=>{
-            console.log(e.target.value)
-          }}
-          />
-          <button>submit</button>
-        </form>
-      </div>
+      
     </div>
   )
 }
