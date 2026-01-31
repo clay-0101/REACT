@@ -1,13 +1,29 @@
 import { useState } from "react"
+import note1 from "./assets/note1.png";
+import note2 from "./assets/note2.png";
+import note3 from "./assets/note3.png";
+import note4 from "./assets/note4.png";
+import note5 from "./assets/note5.png";
 
 const App = () => {
+
+const deleteNote = (idx)=>{
+  let copyTask = [...task]
+  copyTask.splice(idx,1)
+  setTask(copyTask)
+}
+const notes = [note1, note2, note3, note4, note5];
+let selected = 0
+
+
 
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const [task, setTask] = useState([])
 
   const submitHandler = (elem) => {
-
+    selected = Math.floor(Math.random()*notes.length)
+    
     elem.preventDefault()
     if (title == '' && details == '') {
       alert("Add Something..")
@@ -17,7 +33,7 @@ const App = () => {
 
       const copyTask = [...task]
 
-      copyTask.push({ title, details })
+      copyTask.push({ title, details, bg : notes[selected] })
 
       setTask(copyTask)
 
@@ -56,7 +72,7 @@ const App = () => {
 
           >
           </textarea>
-          <button className='border-white border-2 w-full h-10 text-2xl bg-white text-black'>Add Note</button>
+          <button className='border-white border-2 w-full h-10 text-2xl bg-white text-black active:scale-95'>Add Note</button>
         </form>
       </div>
       {/*THIS IS SAVED NOTES*/}
@@ -64,9 +80,15 @@ const App = () => {
         <h1 className='text-4xl font-bold'>Recent Notes</h1>
         <div className='flex flex-wrap mt-5 gap-10 lg:h-[94%]  h-[50vh] overflow-auto '>
           {task.map((ele, idx) => {
-            return <div key={idx} className='h-60 w-50 bg-white text-black p-3 overflow-auto'>
+            return <div 
+            style={{backgroundImage:`url(${ele.bg})`}}
+            key={idx} 
+            className='h-60 w-50 bg-white text-black py-6 px-3 overflow-auto bg-cover rounded-2xl flex flex-col  wrap-break-word '>
               <h1 className="text-2xl font-bold">{ele.title}</h1>
-              <p className="text-gray-600 font-medium">{ele.details}</p>
+              <p className="text-gray-600 font-medium ">{ele.details}</p>
+              <button onClick={()=>{
+                deleteNote(idx)
+              }} className="bg-red-400 py-2 px-8 rounded-2xl text-white mt-auto active:scale-95">Delete</button>
             </div>
           })}
         </div>
