@@ -1,0 +1,1 @@
+This repository is a personal learning archive where I document and upload all the React lessons I practice every day. ✨ Each folder represents a new lesson 📂, <br>covering topics step by step—from fundamentals like components ⚛️,<br>props 📨, and state 🔄, to advanced concepts such as hooks 🪝,<br>routing 🛤️, and performance optimization ⚡.
