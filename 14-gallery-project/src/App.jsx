@@ -24,8 +24,10 @@ const App = () => {
   if(userData.length > 0){
     printUserData = userData.map((elem)=>{
       return<div className="h-60 w-70 rounded-xl overflow-hidden bg-white text-black text-center">
-        <img className="h-[90%] w-full object-cover"src={elem.download_url} alt="" />
+        <a href={elem.url} target="_blank">
+          <img className="h-[90%] w-full object-cover"src={elem.download_url} alt="" />
         <h3 className="text-xl font-bold">{elem.author}</h3>
+        </a>
       </div>
     })
   }
